@@ -148,7 +148,7 @@ export default function Home() {
           {weatherData && (
             <div className="fixed left-4 top-20 z-30 space-y-4">
               <WeatherCard
-              // @ts-expect-error
+              // @ts-expect-error can be null
                 weatherData={weatherData}
                 forecastData={forecastData}
                 airPollution={airPollutionData}
