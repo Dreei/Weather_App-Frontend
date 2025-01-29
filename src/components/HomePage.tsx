@@ -78,7 +78,7 @@ export default function Home() {
         },
         forecastData: {
           city: { name: forecastData.city.name },
-          list: forecastData.list.filter((_: Object, index: number) => index % 8 === 0),
+          list: forecastData.list.filter((_: object, index: number) => index % 8 === 0),
         },
         airPollution: airPollutionData.list[0],
       }
