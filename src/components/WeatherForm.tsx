@@ -19,6 +19,21 @@ interface LocationSuggestion {
   lon: string
 }
 
+
+
+/**
+ * @file WeatherForm.tsx
+ * @description A form component for searching locations and fetching their weather data.
+ * - Handles location search with autocomplete suggestions
+ * - Allows users to use their current location
+ * - Manages loading states during searches
+ * 
+ * @component
+ * @param {Object} props
+ * @param {Function} props.onSubmit - Callback function when form is submitted (lat, lon, displayName) => void
+ * @param {Function} props.onError - Callback function for error handling (message) => void
+ * 
+ */
 export default function WeatherForm({ onSubmit, onError }: WeatherFormProps) {
   const [query, setQuery] = useState("")
   const [suggestions, setSuggestions] = useState<LocationSuggestion[]>([])

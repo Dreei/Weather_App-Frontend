@@ -8,9 +8,9 @@ import { Cloud, FileText, Wind } from "lucide-react"
 
 
 interface WeatherCardProps {
-  weatherData: any
-  forecastData: any
-  airPollution: any
+  weatherData: Object
+  forecastData: Object
+  airPollution: Object
   isLoading: boolean
 }
 
