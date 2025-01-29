@@ -27,9 +27,9 @@ const OPENWEATHERMAP_API_KEY = process.env.NEXT_PUBLIC_OPENWEATHERMAP_API_KEY
 interface WeatherData {
   name: string;
   coord: { lat: number; lon: number };
-  main: object;
-  weather: object[];
-  wind: object;
+  main: { temp: number; feels_like: number; humidity: number; pressure: number };
+  weather: { description: string; icon: string }[];
+  wind: { speed: number; deg: number };
   visibility: number;
   clouds: object;
 }
