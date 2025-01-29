@@ -24,9 +24,22 @@ import axios from "axios"
 const OPENWEATHERMAP_API_KEY = process.env.NEXT_PUBLIC_OPENWEATHERMAP_API_KEY
 
 
+interface WeatherData {
+  name: string;
+  coord: { lat: number; lon: number };
+  main: object;
+  weather: object[];
+  wind: object;
+  visibility: number;
+  clouds: object;
+}
+interface ForecastData {
+  city: { name: string };
+  list: object[];
+}
 export default function Home() {
-  const [weatherData, setWeatherData] = useState(null)
-  const [forecastData, setForecastData] = useState(null)
+  const [weatherData, setWeatherData] = useState<WeatherData | null>(null)
+  const [forecastData, setForecastData] = useState<ForecastData | null>(null)
   const [airPollutionData, setAirPollutionData] = useState(null)
   const [mapCenter, setMapCenter] = useState({ lat: 40.7128, lng: -74.006 })
   const [error, setError] = useState<string | null>(null)
