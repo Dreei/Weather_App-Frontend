@@ -138,27 +138,27 @@ export default function WeatherCard({ weatherData, forecastData, airPollution, i
     <div className="space-y-6">
       <div className="text-center">
         
-        <div // @ts-expect-error
+        <div // @ts-expect-error can be null
         className="text-3xl font-bold mb-2">{getAirQualityDescription(airPollution.main.aqi)}</div>
-        <div // @ts-expect-error
+        <div // @ts-expect-error can be null
         className="text-sm text-muted-foreground">Air Quality Index: {airPollution.main.aqi}</div>
       </div>
       <div className="grid grid-cols-2 gap-4">
-        <WeatherDetail // @ts-expect-error
+        <WeatherDetail // @ts-expect-error can be null
         label="CO" value={`${ airPollution.components.co.toFixed(2)} μg/m³`} />
-        <WeatherDetail // @ts-expect-error
+        <WeatherDetail // @ts-expect-error can be null
          label="NO" value={`${airPollution.components.no.toFixed(2)} μg/m³`} />
-        <WeatherDetail // @ts-expect-error
+        <WeatherDetail // @ts-expect-error can be null
          label="NO2" value={`${airPollution.components.no2.toFixed(2)} μg/m³`} />
-        <WeatherDetail // @ts-expect-error
+        <WeatherDetail // @ts-expect-error can be null
          label="O3" value={`${airPollution.components.o3.toFixed(2)} μg/m³`} />
-        <WeatherDetail // @ts-expect-error
+        <WeatherDetail // @ts-expect-error can be null
          label="SO2" value={`${airPollution.components.so2.toFixed(2)} μg/m³`} />
-        <WeatherDetail // @ts-expect-error
+        <WeatherDetail // @ts-expect-error can be null
          label="PM2.5" value={`${airPollution.components.pm2_5.toFixed(2)} μg/m³`} />
-        <WeatherDetail // @ts-expect-error
+        <WeatherDetail // @ts-expect-error can be null
          label="PM10" value={`${airPollution.components.pm10.toFixed(2)} μg/m³`} />
-        <WeatherDetail // @ts-expect-error
+        <WeatherDetail // @ts-expect-error can be null
          label="NH3" value={`${airPollution.components.nh3.toFixed(2)} μg/m³`} />
       </div>
     </div>
