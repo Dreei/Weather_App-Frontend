@@ -105,7 +105,7 @@ export default function WeatherCard({ weatherData, forecastData, airPollution, i
 
   const renderForecast = () => (
     <div className="space-y-4">
-      {// @ts-expect-error 
+      {// @ts-expect-error can be null
         forecastData.list.slice(0, 5).map((day, index) => (
         <div key={index} className="flex items-center justify-between py-2">
           <div className="flex items-center gap-3">
