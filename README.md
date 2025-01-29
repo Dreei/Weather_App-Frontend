@@ -33,4 +33,8 @@ To get the frontend running locally:
 1. Clone this repository
 2. Navigate to the project directory
 3. Install dependencies using npm install
+4. Create a `.env.local` file in the root directory and add the following environment variables:
+    - NEXT_PUBLIC_OPENWEATHERMAP_API_KEY
+    - NEXT_PUBLIC_BACKEND_URL
+    - NEXT_PUBLIC_GOOGLE_API_KEY
 
