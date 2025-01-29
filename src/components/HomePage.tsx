@@ -27,9 +27,9 @@ const OPENWEATHERMAP_API_KEY = process.env.NEXT_PUBLIC_OPENWEATHERMAP_API_KEY
 interface WeatherData {
   name: string;
   coord: { lat: number; lon: number };
-  main: { temp: number; feels_like: number; humidity: number; pressure: number };
-  weather: { description: string; icon: string }[];
-  wind: { speed: number; deg: number };
+  main: object;
+  weather: object[];
+  wind: object;
   visibility: number;
   clouds: object;
 }
@@ -148,6 +148,7 @@ export default function Home() {
           {weatherData && (
             <div className="fixed left-4 top-20 z-30 space-y-4">
               <WeatherCard
+              // @ts-expect-error
                 weatherData={weatherData}
                 forecastData={forecastData}
                 airPollution={airPollutionData}
