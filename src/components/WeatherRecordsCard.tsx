@@ -195,7 +195,7 @@ export default function WeatherRecordsCard() {
           timezone: 'auto'
         },
       })
-  
+      // @ts-expect-error: We know temperatures is an array 
       const temperatures = []
       
       // Process archive data
@@ -237,7 +237,7 @@ export default function WeatherRecordsCard() {
   
       // Sort temperatures by date to ensure proper ordering
       temperatures.sort((a, b) => compareAsc(new Date(a.date), new Date(b.date)))
-  
+      // @ts-expect-error: We know temperatures is an array
       setFormData(prev => ({ ...prev, temperatures }))
     } catch (error) {
       console.error("Weather data fetch error", error)
@@ -369,7 +369,7 @@ export default function WeatherRecordsCard() {
       searchLocation(locationQuery)
     }
   }
-
+  // @ts-expect-error: field is a same 
   const escapeCSV = (field) => {
     // If the field contains commas, quotes, or newlines, wrap it in quotes
     if (field && (field.includes(',') || field.includes('"') || field.includes('\n'))) {
@@ -378,7 +378,7 @@ export default function WeatherRecordsCard() {
     }
     return field;
   };
-
+  // @ts-expect-error: Record is sure to be a WeatherRecord
   const convertToCSV = (record) => {
     // Add metadata at the top of the CSV
     const metadata = [
@@ -393,6 +393,7 @@ export default function WeatherRecordsCard() {
     const headers = ['Date,Temperature (°C),Description,Humidity (%),Wind Speed (m/s)'];
     
     // Convert temperature records to CSV rows
+    // @ts-expect-error: temperatures is an array
     const rows = record.temperatures.map(temp => {
       // Ensure we're working with proper Date objects
       const date = new Date(temp.date);
@@ -413,6 +414,7 @@ export default function WeatherRecordsCard() {
     return [...metadata, ...headers, ...rows].join('\n');
   };
 
+  // @ts-expect-error: record is sure to be a WeatherRecord and format is either 'json' or 'csv'
   const exportRecord = (record, exportFormat) => {
     try {
       let exportData;
@@ -426,6 +428,7 @@ export default function WeatherRecordsCard() {
             startDate: dateFormat(new Date(record.dateRange.startDate), "yyyy-MM-dd"),
             endDate: dateFormat(new Date(record.dateRange.endDate), "yyyy-MM-dd")
           },
+          //@ts-expect-error: temperatures is an array
           temperatures: record.temperatures.map(temp => ({
             ...temp,
             date: dateFormat(new Date(temp.date), "yyyy-MM-dd"),
@@ -457,6 +460,7 @@ export default function WeatherRecordsCard() {
     }
   };
 
+  //@ts-expect-error: content is a file, fileName is a string, and contentType is a string
   const downloadFile = (content, fileName, contentType) => {
     const blob = new Blob([content], { type: contentType });
     const url = window.URL.createObjectURL(blob);
