@@ -45,11 +45,6 @@ export default function GoogleMapComponent({ center, zoom }: GoogleMapComponentP
           zoomControl: true,
         })
 
-        const marker = new google.maps.Marker({
-          position: center,
-          map: newMap,
-        })
-
         setMap(newMap)
       }
     }

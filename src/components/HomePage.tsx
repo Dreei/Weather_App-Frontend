@@ -7,7 +7,6 @@ import GoogleMapComponent from "@/components/GoogleMapComponent"
 import WeatherForm from "@/components/WeatherForm"
 import WeatherCard from "@/components/WeatherCard"
 import WeatherRecordsCard from "@/components/WeatherRecordsCard"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {Button} from "@/components/ui/button"
 import axios from "axios"
 
